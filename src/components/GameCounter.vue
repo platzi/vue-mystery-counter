@@ -1,8 +1,16 @@
-<script setup></script>
+<script setup>
+const number = 1000
+
+const id = Math.random()
+
+const myAtrr = 'aria-label'
+
+const ariaLabelValue = 'numero del contador'
+</script>
 
 <template>
   <div class="counter-game">
-    <span class="number">0</span>
+    <span :[myAtrr]="ariaLabelValue" :id="id" class="number">{{ number }}</span>
     <div class="button-group">
       <button>-</button>
       <button>+</button>
