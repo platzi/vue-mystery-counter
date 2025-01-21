@@ -1,6 +1,6 @@
 <script setup>
 import JSConfetti from 'js-confetti'
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { getRandomNumbers } from '@/utils/randomNumbers'
 
 const { minNumber, maxNumber } = defineProps({
@@ -42,14 +42,18 @@ watch(counter, () => {
     win.value = true
   }
 })
+
+const styleButton = computed(() => {
+  return win.value ? 'background: red;' : ''
+})
 </script>
 
 <template>
   <div class="counter-game">
     <span class="number">{{ counter }}</span>
     <div class="button-group">
-      <button :disabled="win" @click="decrement">-</button>
-      <button :disabled="win" @click="increment">+</button>
+      <button :disabled="win" :style="styleButton" @click="decrement">-</button>
+      <button :disabled="win" :style="styleButton" @click="increment">+</button>
     </div>
   </div>
 </template>
