@@ -1,15 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-
-const counter = ref(0)
-
-const increment = () => {
-  counter.value++
-}
-
-const decrement = () => {
-  counter.value--
-}
+import { getRandomNumbers } from '@/utils/randomNumbers'
 
 const { minNumber, maxNumber } = defineProps({
   minNumber: {
@@ -28,8 +19,21 @@ const { minNumber, maxNumber } = defineProps({
   },
 })
 
-console.log(minNumber)
-console.log(maxNumber)
+const { initialRandomNumber, numberToGuess } = getRandomNumbers({ maxNumber, minNumber })
+
+console.log('initialRandomNumber', initialRandomNumber)
+
+const counter = ref(initialRandomNumber)
+
+const increment = () => {
+  if (maxNumber === counter.value) return
+  counter.value++
+}
+
+const decrement = () => {
+  if (counter.value === 0) return
+  counter.value--
+}
 </script>
 
 <template>
