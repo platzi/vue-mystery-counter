@@ -9,9 +9,6 @@ export const getRandomNumbers = ({ maxNumber, minNumber }) => {
     initialRandomNumber = calcRandomNumber()
   }
 
-  console.log('Number to guess:', numberToGuess)
-  console.log('Initial random number:', initialRandomNumber)
-
   return {
     numberToGuess,
     initialRandomNumber,

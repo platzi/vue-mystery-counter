@@ -21,8 +21,6 @@ const { minNumber, maxNumber } = defineProps({
 
 const { initialRandomNumber, numberToGuess } = getRandomNumbers({ maxNumber, minNumber })
 
-console.log('initialRandomNumber', initialRandomNumber)
-
 const counter = ref(initialRandomNumber)
 
 const increment = () => {
